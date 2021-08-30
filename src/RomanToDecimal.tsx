@@ -1,13 +1,14 @@
 import { Button, Card, Divider, Form, Input } from 'antd';
 import React, { useState } from 'react';
-import { RomanNumerals } from './utility';
+import { romanNumerals } from './utility';
 
 function RomanToDecimalConverter() {
     let [decimalOutput, setDecimalOutput] = useState(0);
     let [romanInput, setRomanInputInput] = useState('');
+    const { fromRoman, romanNumbersMap } = romanNumerals;
 
     let convertToRoman = () => {
-        let result = RomanNumerals.fromRoman(romanInput.toUpperCase());
+        let result = fromRoman(romanInput.toUpperCase());
         setDecimalOutput(result);
     }
 
@@ -32,6 +33,16 @@ function RomanToDecimalConverter() {
                     </Button>
                 </Form.Item>
             </Form>
+            <div className="roman-number-info">
+                <p><strong>Note:</strong> Enter bar values using following format:
+                    <span className="overline">V</span>: _V 
+                    <span className="overline">X</span>: _X
+                    <span className="overline">L</span>: _L
+                    <span className="overline">C</span>: _C
+                    <span className="overline">D</span>: _D
+                    <span className="overline">M</span>: _M
+                </p>
+            </div>
             {!!decimalOutput && <div className="output-wrapper">
                 <Divider orientation="left">Result</Divider>
                 <div className="output">

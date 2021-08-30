@@ -1,4 +1,4 @@
-export let RomanNumerals = (function () {
+export let romanNumerals = (function () {
   interface RomanNumbersMapDef {
     [key: string]: number;
   }
@@ -129,8 +129,10 @@ export let RomanNumerals = (function () {
   }
 
   return {
+    romanNumbersMap,
     toRoman,
     fromRoman,
     resetRomanNumber,
+    checkSpecialCharacter,
   };
 })();

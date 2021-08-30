@@ -1,14 +1,14 @@
 import { Button, Card, Divider, Form, Input } from 'antd';
 import React, { useState } from 'react';
-import { RomanNumerals } from './utility';
+import { romanNumerals } from './utility';
 
 function DecimalToRomanConverter() {
     let [decimalInput, setDecimalInput] = useState(0);
     let [romanOutput, setRomanOutput] = useState('');
 
     let convertToRoman = () => {
-        RomanNumerals.resetRomanNumber();
-        let result = RomanNumerals.toRoman(decimalInput);
+        romanNumerals.resetRomanNumber();
+        let result = romanNumerals.toRoman(decimalInput);
         setRomanOutput(result);
     }
 
@@ -18,7 +18,6 @@ function DecimalToRomanConverter() {
                 name="basic"
                 layout="inline"
                 onFinish={convertToRoman}
-            // onFinishFailed={onFinishFailed}
             >
                 <Form.Item
                     label="Decimal Number"
@@ -42,12 +41,12 @@ function DecimalToRomanConverter() {
                     </Button>
                 </Form.Item>
             </Form>
-            <div className="output-wrapper ">
+            {romanOutput && <div className="output-wrapper ">
                 <Divider orientation="left"> Result </Divider>
                 <div className="output">
                     {romanOutput}
                 </div>
-            </div>
+            </div>}
         </Card>
     </div>
 }
