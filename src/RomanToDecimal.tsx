@@ -32,13 +32,12 @@ function RomanToDecimalConverter() {
                     </Button>
                 </Form.Item>
             </Form>
-            <div className="output-wrapper">
+            {!!decimalOutput && <div className="output-wrapper">
                 <Divider orientation="left">Result</Divider>
                 <div className="output">
-
-                    {decimalOutput === 0 ? 'Please enter valid Roman number' : decimalOutput}
+                    {decimalOutput < 0 ? 'Please enter valid roman number' : decimalOutput}
                 </div>
-            </div>
+            </div>}
         </Card>
     </div>
 }

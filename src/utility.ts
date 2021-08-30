@@ -49,7 +49,7 @@ export let RomanNumerals = (function () {
   function resetRomanNumber() {
     romanNumber = "";
   }
-  
+
   // Converts roman numerals bar values to equivalent digit.
   function checkSpecialSymbol(romanNumber: string) {
     let newNumber = romanNumber;
@@ -109,6 +109,10 @@ export let RomanNumerals = (function () {
       let nextChar = romanNumber[i + 1];
       let currentCharValue = romanNumbersMap[currentChar];
       let nextCharValue = romanNumbersMap[nextChar];
+
+      if (!currentCharValue) {
+        return -1;
+      }
 
       if (romanNumberLength > i + 1) {
         if (currentCharValue >= nextCharValue) {
