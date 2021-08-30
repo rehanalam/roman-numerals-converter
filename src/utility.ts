@@ -114,14 +114,10 @@ export let romanNumerals = (function () {
         return -1;
       }
 
-      if (romanNumberLength > i + 1) {
-        if (currentCharValue >= nextCharValue) {
-          decimalNumber += currentCharValue;
-        } else {
-          decimalNumber += nextCharValue - currentCharValue;
-        }
+      if (!!nextCharValue && currentCharValue < nextCharValue) {
+        decimalNumber = decimalNumber + nextCharValue - currentCharValue;
       } else {
-        decimalNumber += currentCharValue;
+        decimalNumber = decimalNumber + currentCharValue;
       }
     }
 
