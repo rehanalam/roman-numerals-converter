@@ -129,10 +129,8 @@ export let romanNumerals = (function () {
   }
 
   return {
-    romanNumbersMap,
     toRoman,
     fromRoman,
     resetRomanNumber,
-    checkSpecialCharacter,
   };
 })();

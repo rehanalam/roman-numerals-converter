@@ -5,10 +5,9 @@ import { romanNumerals } from './utility';
 function RomanToDecimalConverter() {
     let [decimalOutput, setDecimalOutput] = useState(0);
     let [romanInput, setRomanInputInput] = useState('');
-    const { fromRoman, romanNumbersMap } = romanNumerals;
 
     let convertToRoman = () => {
-        let result = fromRoman(romanInput.toUpperCase());
+        let result = romanNumerals.fromRoman(romanInput.toUpperCase());
         setDecimalOutput(result);
     }
 
